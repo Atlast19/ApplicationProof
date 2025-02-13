@@ -13,10 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Application.Domain\Application.Domain.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Repoositories\" />
+    <ProjectReference Include="..\Application.Model\Application.Model.csproj" />
   </ItemGroup>
 
 </Project>

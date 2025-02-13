@@ -6,7 +6,7 @@
         {
             FechaCreacion = DateTime.Now;
         }
-        public bool Estado { get; set; }
+        public int Estado { get; set; }
         public DateTime FechaCreacion { get; set; }
     }
 }
