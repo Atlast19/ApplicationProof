@@ -11,7 +11,7 @@ namespace Application.Domain.Entities
         [Column("IdCategoria")]
         [Key]
         public override int Id { get ; set ; }
-        public string Descripcion { get; set; }
+        public string? Descripcion { get; set; }
 
         public int IdServicio { get; set; }
     }

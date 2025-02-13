@@ -10,6 +10,6 @@ namespace Application.Domain.Entities
         [Column("IdEstadoHabitacion")]
         [Key]
         public override int Id { get; set; }
-        public string Descripcion { get; set; }
+        public string? Descripcion { get; set; }
     }
 }

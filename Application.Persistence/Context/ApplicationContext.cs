@@ -12,7 +12,7 @@ namespace Application.Persistence.Context
              
         }
 
-        public DbSet<Categoria> Categorias { get; set; }
+        public DbSet<Categoria> Categoria { get; set; }
         public DbSet<Cliente> Clientes { get; set; }
         public DbSet<EstadoHabitacion> EstadoHabitacions { get; set; }
         public DbSet<Habitacion> Habitacion { get; set; }
@@ -21,6 +21,6 @@ namespace Application.Persistence.Context
         public DbSet<RolUsuario> RolUsuarios { get; set; }
         public DbSet<Servicios> Servicios { get; set; }
         public DbSet<Tarifas> Tarifas { get; set; }
-        public DbSet<Usuario> usuarios { get; set; }
+        public DbSet<Usuario> Usuarios { get; set; }
     }
 }
