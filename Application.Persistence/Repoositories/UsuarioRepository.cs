@@ -3,15 +3,8 @@ using Application.Domain.Entities;
 using Application.Persistence.Base;
 using Application.Persistence.Context;
 using Application.Persistence.Interface;
-using Application.Persistence.Validatiosn;
-using FluentValidation.Results;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Application.Persistence.Repoositories
 {
@@ -20,7 +13,7 @@ namespace Application.Persistence.Repoositories
         private readonly ApplicationContext _contex;
         private readonly ILogger<UsuarioRepository> _logger;
         private readonly IConfiguration _configuration;
-        UsuarioValidations Validations = new UsuarioValidations();
+  
 
         public UsuarioRepository(ApplicationContext context, ILogger<UsuarioRepository> logger, IConfiguration configuracion) : base(context)
         {
@@ -31,34 +24,10 @@ namespace Application.Persistence.Repoositories
 
         public IConfiguration Configuracion { get; }
 
-        public override async Task<OperationResult> SaveEntityAsync(Usuario entity)
+        public override Task<OperationResult> SaveEntityAsync(Usuario entity)
         {
             //agregar las validaciones//
-            OperationResult Operation = new OperationResult();
-            ValidationResult result = await Validations.ValidateAsync(entity);
-            if (!result.IsValid)
-            {
-                foreach (var item in result.Errors)
-                {
-                    Operation.Message = "Datos no guardatos";
-                    _logger.LogError($"Error: {item.PropertyName}");
-                }
-                return Operation;
-            }
-            else
-            {
-                try
-                {
-                    await _contex.Usuarios.AddAsync(entity);
-                    Operation.Success = true;
-                }
-                catch (Exception ex)
-                {
-                    _logger.LogError(ex.Message);
-                    Operation.Message = $"Error: {ex.Message}";
-                }
-            }
-            return Operation;
+            return base.SaveEntityAsync(entity);
         }
 
         public override Task<OperationResult> UpdateEntityAsync(Usuario entity)

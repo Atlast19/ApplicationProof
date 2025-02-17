@@ -3,8 +3,7 @@ using Application.Domain.Entities;
 using Application.Persistence.Base;
 using Application.Persistence.Context;
 using Application.Persistence.Interface;
-using Application.Persistence.Validatiosn;
-using FluentValidation.Results;
+
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
@@ -15,7 +14,6 @@ namespace Application.Persistence.Repoositories
         private readonly ApplicationContext _contex;
         private readonly ILogger<EstadoHabitacionRepository> _logger;
         private readonly IConfiguration _configuration;
-        EstadoHabitacionValidations Validations = new EstadoHabitacionValidations();
 
         public EstadoHabitacionRepository(ApplicationContext context, ILogger<EstadoHabitacionRepository> logger, IConfiguration configuracion) : base(context)
         {
@@ -26,34 +24,10 @@ namespace Application.Persistence.Repoositories
 
         public IConfiguration Configuracion { get; }
 
-        public override async Task<OperationResult> SaveEntityAsync(EstadoHabitacion entity)
+        public override Task<OperationResult> SaveEntityAsync(EstadoHabitacion entity)
         {
             //agregar las validaciones//
-            OperationResult Operation = new OperationResult();
-            ValidationResult result = await Validations.ValidateAsync(entity);
-            if (!result.IsValid)
-            {
-                foreach (var item in result.Errors)
-                {
-                    Operation.Message = "Datos no guardatos";
-                    _logger.LogError($"Error: {item.PropertyName}");
-                }
-                return Operation;
-            }
-            else
-            {
-                try
-                {
-                    await _contex.EstadoHabitacions.AddAsync(entity);
-                    Operation.Success = true;
-                }
-                catch (Exception ex)
-                {
-                    _logger.LogError(ex.Message);
-                    Operation.Message = $"Error: {ex.Message}";
-                }
-            }
-            return Operation;
+            return base.SaveEntityAsync(entity);
         }
 
         public override Task<OperationResult> UpdateEntityAsync(EstadoHabitacion entity)
