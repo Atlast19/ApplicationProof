@@ -7,11 +7,6 @@ using Application.Persistence.Interface;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Application.Persistence.Repoositories
 {
@@ -56,15 +51,6 @@ namespace Application.Persistence.Repoositories
                 this._loguer.LogError(result.Message, ex.ToString());
             }
             return result;
-        }
-
-        public override Task<OperationResult> SaveEntityAsync(Servicios entity)
-        {
-            return base.SaveEntityAsync(entity);
-        }
-        public override Task<OperationResult> UpdateEntityAsync(Servicios entity)
-        {
-            return base.UpdateEntityAsync(entity);
         }
     }
 }

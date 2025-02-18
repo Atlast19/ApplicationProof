@@ -17,24 +17,9 @@ namespace Application.Persistence.Repoositories
 
         public TarifaRepository(ApplicationContext context, ILogger<TarifaRepository> loguer, IConfiguration configuracion) : base(context)
         {
-            this._contex = context;
-            this._loguer = loguer;
-            this._configuration = configuracion;
-        }
-
-        public IConfiguration Configuracion { get; }
-
-        public override Task<OperationResult> SaveEntityAsync(Tarifas entity)
-        {
-            //agregar las validaciones//
-
-
-            return base.SaveEntityAsync(entity);
-        }
-
-        public override Task<OperationResult> UpdateEntityAsync(Tarifas entity)
-        {
-            return base.UpdateEntityAsync(entity);
+            _contex = context;
+            _loguer = loguer;
+            _configuration = configuracion;
         }
     }
 }

@@ -5,11 +5,6 @@ using Application.Persistence.Context;
 using Application.Persistence.Interface;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Application.Persistence.Repoositories
 {
@@ -21,24 +16,9 @@ namespace Application.Persistence.Repoositories
 
         public UsuarioRepository(ApplicationContext context, ILogger<UsuarioRepository> loguer, IConfiguration configuracion) : base(context)
         {
-            this._contex = context;
-            this._loguer = loguer;
-            this._configuration = configuracion;
-        }
-
-        public IConfiguration Configuracion { get; }
-
-        public override Task<OperationResult> SaveEntityAsync(Usuario entity)
-        {
-            //agregar las validaciones//
-
-
-            return base.SaveEntityAsync(entity);
-        }
-
-        public override Task<OperationResult> UpdateEntityAsync(Usuario entity)
-        {
-            return base.UpdateEntityAsync(entity);
+            _contex = context;
+            _loguer = loguer;
+            _configuration = configuracion;
         }
     }
 }
