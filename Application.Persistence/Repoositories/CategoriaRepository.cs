@@ -24,19 +24,14 @@ namespace Application.Persistence.Repoositories
             this._configuration = configuracion;
         }
 
-        public IConfiguration Configuracion { get; }
-
-        public override Task<OperationResult> SaveEntityAsync(Categoria entity) 
+        public Task<OperationResult> DefinirTarifaBase(Categoria categoria)
         {
-            //agregar las validaciones//
-
-
-            return base.SaveEntityAsync(entity);
+            throw new NotImplementedException();
         }
 
-        public override Task<OperationResult> UpdateEntityAsync(Categoria entity) 
+        public Task<OperationResult> TarifaPorTemporada(Categoria categoria)
         {
-            return base.UpdateEntityAsync(entity);
+            throw new NotImplementedException();
         }
     }
 }

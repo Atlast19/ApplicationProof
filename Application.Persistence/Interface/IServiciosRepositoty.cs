@@ -7,5 +7,9 @@ namespace Application.Persistence.Interface
     public interface IServiciosRepositoty : IBaseRepository<Servicios, int>
     {
         Task<OperationResult> GetServiciosByCategoriaId(int CategoriaId);
+
+        Task<OperationResult> CrearServiciosParaCategorias(IEnumerable<Categoria> categorias);
+        Task<OperationResult> EnviarPrecioPorCategoria(Categoria categoria, decimal precio);
+
     }
 }

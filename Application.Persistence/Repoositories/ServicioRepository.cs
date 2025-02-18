@@ -25,6 +25,16 @@ namespace Application.Persistence.Repoositories
 
         public IConfiguration Configuracion { get; }
 
+        public Task<OperationResult> CrearServiciosParaCategorias(IEnumerable<Categoria> categorias)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<OperationResult> EnviarPrecioPorCategoria(Categoria categoria, decimal precio)
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<OperationResult> GetServiciosByCategoriaId(int CategoriaId)
         {
             OperationResult result = new OperationResult();
