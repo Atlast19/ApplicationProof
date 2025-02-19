@@ -1,8 +1,6 @@
-﻿using Application.Domain.Base;
-using Application.Domain.Repository;
+﻿using Application.Domain.Repository;
 using Application.Persistence.Context;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Graph.Models;
 using System.Linq.Expressions;
 using OperationResult = Application.Domain.Base.OperationResult;
 

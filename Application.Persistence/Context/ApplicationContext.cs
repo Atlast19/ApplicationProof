@@ -1,6 +1,6 @@
 ﻿using Application.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Graph.Models;
+
 
 
 namespace Application.Persistence.Context
